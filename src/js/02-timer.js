@@ -51,6 +51,7 @@ function verificetionDate(date) {
     ofDisabled(startBtn);
   } else {
     alertMesseg();
+    onDisabled(startBtn);
   }
 }
 
