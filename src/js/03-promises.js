@@ -1,7 +1,6 @@
 import '../css/common.css';
 import Notiflix from 'notiflix';
 
-console.log('pidary')
 const form = document.querySelector('.form');
 form.addEventListener('submit', submitForm);
 

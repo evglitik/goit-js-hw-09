@@ -1,6 +1,6 @@
 import '../css/common.css';
 
-refs = {
+const refs = {
   body: document.querySelector('body'),
   btnStart: document.querySelector('button[data-start]'),
   btnStop: document.querySelector('button[data-stop]'),
