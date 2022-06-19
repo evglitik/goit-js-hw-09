@@ -81,6 +81,7 @@ img {
 .timer {
   display: flex;
   justify-content: center;
+  margin-bottom: 50px;
 }
 
 .field {
@@ -113,5 +114,87 @@ img {
 }
 
 #datetime-picker {
+  padding: 5px;
   margin-right: 10px;
+  width: 180px;
+  height: 30px;
+  font-size: 20px;
+  box-shadow: -2px -1px 8px -3px rgba(34, 60, 80, 0.49);
+}
+
+.inputs > button {
+  color: #000000;
+  background-color: #fcb5a8;
+  border: #fcb5a8;
+  border-radius: 8%;
+  width: 80px;
+  font-size: 18px;
+  transition: all 150ms ease-in-out;
+  box-shadow: -2px -1px 8px -3px rgba(34, 60, 80, 0.49);
+}
+
+.inputs > button:hover {
+  background-color: #d82a0b;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.inputs > button[disabled] {
+  background-color: #b1b1b1;
+  color: #4e4e4e;
+  box-shadow: none;
+}
+
+.timer-card {
+  background-color: rgb(252, 252, 252);
+  padding: 30px 100px 60px;
+  margin: 75px 230px 20px;
+  border-radius: 7px;
+  box-shadow: 2px 2px 15px -6px rgba(34, 60, 80, 0.49);
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  /* align-items: center; */
+}
+
+.form > label {
+  display: flex;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+}
+
+.form > label > span:not(:last-child) {
+  width: 115px;
+  margin-right: 10px;
+}
+
+.form > button {
+  width: 115px;
+  margin-left: auto;
+  margin-right: auto;
+
+  background-color: #3498db;
+  color: #fff;
+  transition: all 150ms ease-in-out;
+
+  border: 2px solid;
+  border-color: #3498db;
+  border-radius: 4px;
+
+  cursor: pointer;
+
+  font-size: 12px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.form > button:hover,
+.form > button:focus {
+  background-color: #115380;
 }
