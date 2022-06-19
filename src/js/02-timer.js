@@ -36,7 +36,7 @@ function startTimer(ev) {
 function dateTimer() {
   const idInterval = setInterval(() => {
     if (startTime - new Date() > 0) {
-      nowTime = convertMs(startTime - new Date());
+      const nowTime = convertMs(startTime - new Date());
       onPageDate(nowTime);
     } else {
       stopDateTimer(idInterval);
