@@ -1,31 +1,29 @@
 import '../css/common.css';
 
-const refs = {
-  body: document.querySelector('body'),
-  btnStart: document.querySelector('button[data-start]'),
-  btnStop: document.querySelector('button[data-stop]'),
-};
+const body = document.querySelector('body');
+const btnStart = document.querySelector('button[data-start]');
+const btnStop = document.querySelector('button[data-stop]');
 
-onDisabled(refs.btnStop);
+onDisabled(btnStop);
 
 const CHANGE_COLOR_TIME = 1000;
 let idInterval = null;
 
-refs.btnStart.addEventListener('click', onChangeColor);
-refs.btnStop.addEventListener('click', offChangeColor);
+btnStart.addEventListener('click', onChangeColor);
+btnStop.addEventListener('click', offChangeColor);
 
 function onChangeColor(e) {
   onDisabled(e.target);
-  offDisabled(refs.btnStop);
+  offDisabled(btnStop);
 
   idInterval = setInterval(() => {
     const color = getRandomHexColor();
-    refs.body.style.backgroundColor = color;
+    body.style.backgroundColor = color;
   }, CHANGE_COLOR_TIME);
 }
 
 function offChangeColor(e) {
-  offDisabled(refs.btnStart);
+  offDisabled(btnStart);
   onDisabled(e.target);
   clearInterval(idInterval);
 }

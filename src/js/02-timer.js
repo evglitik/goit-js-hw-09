@@ -3,17 +3,13 @@ import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 import Notiflix from 'notiflix';
 
-const refs = {
-  startBtn: document.querySelector('button[data-start]'),
-  dateInput: document.querySelector('#datetime-picker'),
-};
+const startBtn = document.querySelector('button[data-start]');
+const dateInput = document.querySelector('#datetime-picker');
 
-//Нотификатор
 function alertMesseg() {
   return Notiflix.Notify.failure('Please choose a date in the future');
 }
 
-//Календарь
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -23,17 +19,17 @@ const options = {
     verificetionDate();
   },
 };
-const fp = flatpickr(refs.dateInput, options);
+const fp = flatpickr(dateInput, options);
 
-onDisabled(refs.startBtn);
+onDisabled(startBtn);
 let startTime = fp.selectedDates[0];
 
-refs.startBtn.addEventListener('click', startTimer);
+startBtn.addEventListener('click', startTimer);
 
 function startTimer(ev) {
   startTime = fp.selectedDates[0];
   dateTimer();
-  onDisabled(refs.startBtn, refs.dateInput);
+  onDisabled(startBtn, dateInput);
   timeForMagic();
 }
 
@@ -45,14 +41,14 @@ function dateTimer() {
     } else {
       stopDateTimer(idInterval);
       timeForMagicRemove();
-      onDisabled(refs.startBtn);
+      onDisabled(startBtn);
     }
   }, 1000);
 }
 
 function verificetionDate() {
   if (fp.selectedDates[0] > new Date()) {
-    ofDisabled(refs.startBtn);
+    ofDisabled(startBtn);
   } else {
     alertMesseg();
   }
@@ -60,7 +56,7 @@ function verificetionDate() {
 
 function stopDateTimer(id) {
   clearInterval(id);
-  ofDisabled(refs.startBtn, refs.dateInput);
+  ofDisabled(startBtn, dateInput);
 }
 
 function onDisabled(...el) {
@@ -103,6 +99,7 @@ function timeForMagic() {
 }
 
 function timeForMagicRemove() {
-  document.querySelector('.text-magic').textContent = 'Please choose date in top, and push start';
+  document.querySelector('.text-magic').textContent =
+    'Please choose date in top, and push start';
   return Notiflix.Notify.warning('Ouch! Magic still in development');
 }
