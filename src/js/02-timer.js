@@ -15,8 +15,8 @@ const options = {
   time_24hr: true,
   defaultDate: new Date(),
   minuteIncrement: 1,
-  onClose() {
-    verificetionDate();
+  onClose(selectedDates) {
+    verificetionDate(selectedDates[0]);
   },
 };
 const fp = flatpickr(dateInput, options);
@@ -46,8 +46,8 @@ function dateTimer() {
   }, 1000);
 }
 
-function verificetionDate() {
-  if (fp.selectedDates[0] > new Date()) {
+function verificetionDate(date) {
+  if (date > new Date()) {
     ofDisabled(startBtn);
   } else {
     alertMesseg();
